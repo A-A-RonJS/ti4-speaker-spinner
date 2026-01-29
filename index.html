@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Spinner Wheel</title>
+        <link rel="stylesheet" href="css/spinner-wheel.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Speaker Selection</h1>
+        
+        <div class="main-content">
+            <div class="spinner-section">
+                <div class="wheel-container">
+                    <div class="pointer"></div>
+                    <canvas id="wheel" width="400" height="400"></canvas>
+                    <div class="center-pin" aria-hidden="true"></div>
+                </div>
+                <div class="result" id="result">Select factions to begin...</div>
+                <div class="spin-actions">
+                    <button class="spin-btn" id="spinButton" disabled>Initiate Selection</button>
+                    <button class="ghost-btn small-btn" id="shuffleSegments" type="button">Shuffle</button>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <div class="timer-control">
+                    <label for="spinDuration">Spin Duration (seconds)</label>
+                    <input type="number" id="spinDuration" min="1" max="60" value="5" step="0.5">
+                </div>
+
+                <h3>Faction Library</h3>
+                <div class="library">
+                    <div class="library-header">
+                        <input type="text" id="factionFilter" placeholder="Filter factions...">
+                    </div>
+                    <div class="library-filters">
+                        <button class="filter-chip is-active" data-filter="all">All</button>
+                        <button class="filter-chip" data-filter="base">Base Game</button>
+                        <button class="filter-chip" data-filter="pok">PoK</button>
+                    </div>
+                    <div class="selected-inline">
+                        <div class="section-header">
+                            <h3>Selected Factions</h3>
+                            <span class="count-badge" id="selectedCount">0 / 8</span>
+                        </div>
+                        <div class="segment-list" id="segmentList"></div>
+                    </div>
+                    <div class="library-grid" id="factionGrid"></div>
+                </div>
+                <div class="floating-actions library-actions" aria-label="Selection actions">
+                    <button class="add-segment-btn" id="addSelectedFactions">Add Selected Factions</button>
+                    <button class="ghost-btn" id="clearFactionSelection">Clear Selection</button>
+                    <button class="ghost-btn" id="clearAllSegments">Clear All</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/spinner-wheel.js" defer></script>
+</body>
+</html>
